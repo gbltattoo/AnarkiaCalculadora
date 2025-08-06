@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Produção - GTA RP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      padding: 30px;
+    }
+    h1 {
+      color: #00ff88;
+    }
+    label, select, input {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    input[type="number"] {
+      width: 100px;
+      padding: 5px;
+    }
+    .resultado {
+      margin-top: 20px;
+      padding: 15px;
+      background: #222;
+      border-radius: 8px;
+    }
+    .resultado p {
+      margin: 5px 0;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      font-size: 16px;
+      background: #00ff88;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00cc66;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧪 Calculadora de Produção - Máfia GTA RP</h1>
+
+  <label for="item">Escolha o item a fabricar:</label>
+  <select id="item">
+    <option value="c4">Bomba C4</option>
+    <option value="capuz">Capuz</option>
+    <option value="colete">Colete (em breve)</option>
+  </select>
+
+  <label for="quantidade">Quantidade a fabricar:</label>
+  <input type="number" id="quantidade" min="1" value="1">
+
+  <button onclick="calcular()">Calcular</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    function calcular() {
+      const item = document.getElementById("item").value;
+      const quantidade = parseInt(document.getElementById("quantidade").value);
+      const resultadoDiv = document.getElementById("resultado");
+
+      let materiais = "";
+      let totalVenda = quantidade * 1000;
+
+      if (item === "c4") {
+        let aluminio = 1 * quantidade;
+        let cobre = 5 * quantidade;
+        let polvora = 1 * quantidade;
+
+        materiais += `<p><strong>Materiais para fabricar ${quantidade} C4:</strong></p>`;
+        materiais += `<p>🔩 Alumínio: ${aluminio} unidades</p>`;
+        materiais += `<p>🧱 Cobre: ${cobre} unidades</p>`;
+        materiais += `<p>💣 Caixa de pólvora: ${polvora} unidades</p>`;
+
+      } else if (item === "capuz") {
+        let roupa = 5 * quantidade;
+        let borracha = 10 * quantidade;
+
+        materiais += `<p><strong>Materiais para fabricar ${quantidade} Capuz:</strong></p>`;
+        materiais += `<p>👕 Peça de roupa: ${roupa} unidades</p>`;
+        materiais += `<p>🛞 Borracha: ${borracha} unidades</p>`;
+
+      } else if (item === "colete") {
+        materiais += `<p><strong>Materiais para o Colete ainda não cadastrados.</strong></p>`;
+      }
+
+      materiais += `<hr><p><strong>💰 Valor de venda:</strong> R$ 1.000,00 por unidade</p>`;
+      materiais += `<p><strong>💵 Valor total (${quantidade}x):</strong> R$ ${totalVenda.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>`;
+
+      resultadoDiv.innerHTML = materiais;
+    }
+  </script>
+</body>
+</html>
