@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -53,7 +52,9 @@
   <select id="item">
     <option value="c4">Bomba C4</option>
     <option value="capuz">Capuz</option>
-    <option value="colete">Colete (em breve)</option>
+    <option value="colete">Colete</option>
+    <option value="lockpick2">Lockpick-2</option>
+    <option value="lockpick1">Lockpick-1</option>
   </select>
 
   <label for="quantidade">Quantidade a fabricar:</label>
@@ -73,25 +74,33 @@
       let totalVenda = quantidade * 1000;
 
       if (item === "c4") {
-        let aluminio = 1 * quantidade;
-        let cobre = 5 * quantidade;
-        let polvora = 1 * quantidade;
-
         materiais += `<p><strong>Materiais para fabricar ${quantidade} C4:</strong></p>`;
-        materiais += `<p>🔩 Alumínio: ${aluminio} unidades</p>`;
-        materiais += `<p>🧱 Cobre: ${cobre} unidades</p>`;
-        materiais += `<p>💣 Caixa de pólvora: ${polvora} unidades</p>`;
+        materiais += `<p>🔩 Alumínio: ${1 * quantidade} unidades</p>`;
+        materiais += `<p>🧱 Cobre: ${5 * quantidade} unidades</p>`;
+        materiais += `<p>💣 Caixa de pólvora: ${1 * quantidade} unidades</p>`;
 
       } else if (item === "capuz") {
-        let roupa = 5 * quantidade;
-        let borracha = 10 * quantidade;
-
         materiais += `<p><strong>Materiais para fabricar ${quantidade} Capuz:</strong></p>`;
-        materiais += `<p>👕 Peça de roupa: ${roupa} unidades</p>`;
-        materiais += `<p>🛞 Borracha: ${borracha} unidades</p>`;
+        materiais += `<p>👕 Peça de roupa: ${5 * quantidade} unidades</p>`;
+        materiais += `<p>🛞 Borracha: ${10 * quantidade} unidades</p>`;
 
       } else if (item === "colete") {
-        materiais += `<p><strong>Materiais para o Colete ainda não cadastrados.</strong></p>`;
+        materiais += `<p><strong>Materiais para fabricar ${quantidade} Colete:</strong></p>`;
+        materiais += `<p>🛞 Borracha: ${20 * quantidade} unidades</p>`;
+        materiais += `<p>🔩 Alumínio: ${20 * quantidade} unidades</p>`;
+        materiais += `<p>👕 Peça de roupa: ${2 * quantidade} unidades</p>`;
+
+      } else if (item === "lockpick2") {
+        materiais += `<p><strong>Materiais para fabricar ${quantidade} Lockpick-2:</strong></p>`;
+        materiais += `<p>🔩 Sucata metálica: ${30 * quantidade} unidades</p>`;
+        materiais += `<p>🧴 Plástico: ${30 * quantidade} unidades</p>`;
+        materiais += `<p>🛞 Borracha: ${30 * quantidade} unidades</p>`;
+
+      } else if (item === "lockpick1") {
+        materiais += `<p><strong>Materiais para fabricar ${quantidade} Lockpick-1:</strong></p>`;
+        materiais += `<p>🔩 Sucata metálica: ${15 * quantidade} unidades</p>`;
+        materiais += `<p>🧴 Plástico: ${15 * quantidade} unidades</p>`;
+        materiais += `<p>🛞 Borracha: ${15 * quantidade} unidades</p>`;
       }
 
       materiais += `<hr><p><strong>💰 Valor de venda:</strong> R$ 1.000,00 por unidade</p>`;
